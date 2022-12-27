@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.function.Supplier;
 import com.springboot.app.example2.models.Employee;
 import com.springboot.app.example1.models.Student;
+import com.springboot.sec.user.User;
 
 public class HelperUtil {
 
@@ -33,5 +34,10 @@ public class HelperUtil {
                     Student.builder().name("Steve").superName("Captain America").profession("Solder").age(120).canFly(false).build(),
                     Student.builder().name("Tony").superName("Iron Man").profession("Business man").age(45).canFly(true).build(),
                     Student.builder().name("Peter").superName("Spider Man").profession("Student").age(21).canFly(true).build()
+            );
+
+    public static Supplier<List<User>> userSupplier = () ->
+            Arrays.asList(
+                    User.builder().firstName("shahidul").lastName("hasan").email("shahidul@gmail.com").address("Dhaka").contactNumber("019").enabled(true).build()
             );
 }

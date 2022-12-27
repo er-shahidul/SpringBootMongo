@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document(collection = "super_hero")
+@Document(collection = "students")
 public class Student implements Serializable {
 
     @Id
