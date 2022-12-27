@@ -2,18 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.0.1</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
-    <groupId>com.spring.mongo.demo</groupId>
+
+    <groupId>com.spring.mongo.jpa</groupId>
     <artifactId>spring-boot-mongo-jpa</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-mongo-jpa</name>
-    <description>Demo project for spring-boot-mongodb</description>
+    <description>Project for spring-boot-mongo-jpa</description>
 
     <properties>
         <java.version>17</java.version>
@@ -21,16 +24,19 @@
 
     <dependencies>
 
+        <!-- for spring boot web application including RESTFUL -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- for using MongoDB document-oriented database -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
 
+        <!-- pick up the changes and restart the application -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -38,48 +44,27 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- replaces boilerplate code with easy-to-use annotations -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
-
+        <!-- provides a number of useful tools for testing application -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <!--	  &lt;!&ndash;    Swagger Start   &ndash;&gt;-->
-        <!--		  <dependency>-->
-        <!--			 <groupId>io.springfox</groupId>-->
-        <!--			 <artifactId>springfox-swagger2</artifactId>-->
-        <!--			 <version>3.0.0</version>-->
-        <!--		  </dependency>-->
-        <!--		  <dependency>-->
-        <!--			 <groupId>io.springfox</groupId>-->
-        <!--			 <artifactId>springfox-swagger-ui</artifactId>-->
-        <!--			 <version>3.0.0</version>-->
-        <!--		  </dependency>-->
-        <!--	  &lt;!&ndash;    Swagger End    &ndash;&gt;-->
-
-        <!--		<dependency>-->
-        <!--			<groupId>io.springfox</groupId>-->
-        <!--			<artifactId>springfox-boot-starter</artifactId>-->
-        <!--			<version>3.0.0</version>-->
-        <!--		</dependency>-->
-        <!--		<dependency>-->
-        <!--			<groupId>io.springfox</groupId>-->
-        <!--			<artifactId>springfox-spring-webflux</artifactId>-->
-        <!--			<version>3.0.0</version>-->
-        <!--		</dependency>-->
-
-
     </dependencies>
 
     <build>
+
         <plugins>
+
+            <!-- It allows you to package executable jar or war archives, run, generate build information and start application prior to running integration tests -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -88,7 +73,9 @@
                     <includeSystemScope>true</includeSystemScope>
                 </configuration>
             </plugin>
+
         </plugins>
+
     </build>
 
 </project>
