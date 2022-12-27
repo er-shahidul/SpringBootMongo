@@ -1,4 +1,4 @@
-package com.springboot.mongo.jpa.model;
+package com.springboot.app.example1.models;
 
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 @Document(collection = "super_hero")
-public class SuperHero implements Serializable {
+public class Student implements Serializable {
 
     @Id
     private String id;

@@ -1,23 +1,19 @@
-package com.springboot.mongo.jpa.service.impl;
+package com.springboot.app.example2.models.services.impl;
 
-import java.util.ArrayList;
+
 import java.util.List;
-
-import com.springboot.mongo.jpa.model.Employee;
-import com.springboot.mongo.jpa.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.ArrayList;
 import org.springframework.stereotype.Service;
-
-import com.springboot.mongo.jpa.repository.EmployeeRepository;
+import com.springboot.app.example2.models.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.springboot.app.example2.models.services.EmployeeService;
+import com.springboot.app.example2.models.repositories.EmployeeRepository;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-	
 
 	@Autowired
 	private EmployeeRepository repository;
-	
-
 	
 	@Override
 	public List<Employee> getAll() {
@@ -108,9 +104,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}
 		return employees;
 	}
-
-	
-	
 	
 	@Override
 	public List<Employee> getEmployeeByCondition(Employee employee) {
@@ -181,5 +174,4 @@ public class EmployeeServiceImpl implements EmployeeService {
 		// || null != employee.getLastName() || employee.getSalary() > 0))
 		return employees;
 	}
-
 }

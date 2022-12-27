@@ -1,21 +1,19 @@
-package com.springboot.mongo.jpa.repository.impl;
+package com.springboot.app.example2.models.repositories.impl;
 
-import java.util.ArrayList;
+
 import java.util.List;
-
-import com.springboot.mongo.jpa.model.Employee;
-import com.springboot.mongo.jpa.repository.EmployeeQueryDao;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.ArrayList;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Repository;
+import com.springboot.app.example2.models.Employee;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.stereotype.Repository;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import com.springboot.app.example2.models.repositories.EmployeeQueryDao;
 
 @Repository
 class EmployeeQueryDaoImpl implements EmployeeQueryDao {
-
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -26,7 +24,6 @@ class EmployeeQueryDaoImpl implements EmployeeQueryDao {
         return mongoTemplate.findAll(Employee.class);
     }
 
-
     @Override
     public List<Employee> getEmployeeByFirstName(String firstName) {
 
@@ -34,7 +31,6 @@ class EmployeeQueryDaoImpl implements EmployeeQueryDao {
         query.addCriteria(Criteria.where("firstName").is(firstName));
         return new ArrayList<>(mongoTemplate.find(query, Employee.class));
     }
-
 
     @Override
     public Employee getSingleEmployeeByFirstName(String name) {
@@ -44,7 +40,6 @@ class EmployeeQueryDaoImpl implements EmployeeQueryDao {
 
         return mongoTemplate.findOne(query, Employee.class);
     }
-
 
     // "firstName"  --> database property (not related to java code)
     // select * from employee where lastName like %Gurung% limit 1 --> (case insensitive)
@@ -57,7 +52,6 @@ class EmployeeQueryDaoImpl implements EmployeeQueryDao {
         return mongoTemplate.find(query, Employee.class);
     }
 
-
     @Override
     public Employee getSingleEmployeeByLastName(String lastName) {
 
@@ -66,9 +60,6 @@ class EmployeeQueryDaoImpl implements EmployeeQueryDao {
 
         return mongoTemplate.findOne(query, Employee.class);
     }
-
-
-
 
     @Override
     public List<Employee> getEmployeeBySalaryGreaterThan(int salary) {
@@ -80,6 +71,4 @@ class EmployeeQueryDaoImpl implements EmployeeQueryDao {
 
         return mongoTemplate.find(query, Employee.class);
     }
-
-
 }

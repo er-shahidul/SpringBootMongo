@@ -1,15 +1,13 @@
-package com.springboot.mongo.jpa.repository;
+package com.springboot.app.example2.models.repositories;
 
-import com.springboot.mongo.jpa.model.Employee;
-import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
+import com.springboot.app.example2.models.Employee;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface EmployeeRepository extends MongoRepository<Employee, String> {
 
     Employee findByFirstName(String firstName);
 
     List<Employee> findByFirstNameLike(String firstName);
-
-
 }

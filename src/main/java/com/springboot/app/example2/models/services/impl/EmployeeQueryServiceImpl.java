@@ -1,16 +1,15 @@
-package com.springboot.mongo.jpa.service.impl;
+package com.springboot.app.example2.models.services.impl;
 
+
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
-
-import com.springboot.mongo.jpa.model.Employee;
-import com.springboot.mongo.jpa.service.EmployeeQueryService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.springboot.mongo.jpa.repository.EmployeeQueryDao;
 import org.springframework.util.StringUtils;
+import org.springframework.stereotype.Service;
+import com.springboot.app.example2.models.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.springboot.app.example2.models.repositories.EmployeeQueryDao;
+import com.springboot.app.example2.models.services.EmployeeQueryService;
 
 @Service
 public class EmployeeQueryServiceImpl implements EmployeeQueryService {
@@ -34,7 +33,6 @@ public class EmployeeQueryServiceImpl implements EmployeeQueryService {
 		return null;
 	}
 
-
 	@Override
 	public Employee getOneEmployeeByFirstName(String firstName) {
 
@@ -44,6 +42,7 @@ public class EmployeeQueryServiceImpl implements EmployeeQueryService {
 
 		return null;
 	}
+
 	@Override
 	public List<Employee> getEmployeeByFirstNameLike(String firstName) {
 
@@ -53,7 +52,6 @@ public class EmployeeQueryServiceImpl implements EmployeeQueryService {
 
 		return null;
 	}
-
 
 	@Override
 	public Employee getSingleEmployeeByLastName(String lastName) {
@@ -133,5 +131,4 @@ public class EmployeeQueryServiceImpl implements EmployeeQueryService {
 		// || null != employee.getLastName() || employee.getSalary() > 0))
 		return employees;
 	}
-
 }

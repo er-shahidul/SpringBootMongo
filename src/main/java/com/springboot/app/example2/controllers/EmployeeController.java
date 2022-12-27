@@ -1,12 +1,11 @@
-package com.springboot.mongo.jpa.controller;
+package com.springboot.app.example2.controllers;
+
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import com.springboot.mongo.jpa.model.Employee;
-import com.springboot.mongo.jpa.service.EmployeeService;
+import com.springboot.app.example2.models.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.springboot.app.example2.models.services.EmployeeService;
 
 @RestController
 @RequestMapping("/employee-jpa")
@@ -52,7 +51,6 @@ public class EmployeeController {
 	public Employee getEmployeeBylName(@PathVariable String lastName) {
 		return employeeService.getEmployeeByLastName(lastName);
 	}
-
 
 	@GetMapping("/salary-greater-than/{salary}")
 	public List<Employee> getEmployeeBySalaryGreaterThan(@PathVariable int salary) {

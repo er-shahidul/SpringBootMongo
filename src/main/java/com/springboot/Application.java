@@ -1,41 +1,37 @@
-package com.springboot.mongo.jpa;
+package com.springboot;
 
-import com.springboot.mongo.jpa.model.Employee;
-import com.springboot.mongo.jpa.model.SuperHero;
-import com.springboot.mongo.jpa.repository.EmployeeRepository;
-import com.springboot.mongo.jpa.repository.SuperHeroRepository;
-import com.springboot.mongo.jpa.utils.HelperUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import java.util.List;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import com.springboot.base.utils.HelperUtil;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import com.springboot.app.example1.models.Student;
+import com.springboot.app.example2.models.Employee;
+import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.springboot.app.example1.models.repositories.StudentRepository;
+import com.springboot.app.example2.models.repositories.EmployeeRepository;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
 @EnableMongoRepositories
-public class SpringBootMongoDBApplication {
+public class Application {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootMongoDBApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
-
-
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
 	@Autowired
-	private SuperHeroRepository superHeroRepository;
+	private StudentRepository studentRepository;
 
-	
 	@Bean
 	CommandLineRunner runner() {
 		return args -> {
@@ -48,15 +44,14 @@ public class SpringBootMongoDBApplication {
 					LOGGER.info("******* Employees stored in DB :: {}", employees);
 				}
 
-			List<SuperHero> superHeroes = superHeroRepository.findAll();
-			if (superHeroes.size() == 0) {
+			List<Student> students = studentRepository.findAll();
+			if (students.size() == 0) {
 				LOGGER.info("******* Inserting Super heroes to DB *******");
-				superHeroRepository.saveAll(HelperUtil.superHeroesSupplier.get());
+				studentRepository.saveAll(HelperUtil.superHeroesSupplier.get());
 			} else {
-				LOGGER.info("******* Super heroes stored in DB Size :: {}", superHeroes.size());
-				LOGGER.info("******* Super heroes stored in DB :: {}", superHeroes);
+				LOGGER.info("******* Super heroes stored in DB Size :: {}", students.size());
+				LOGGER.info("******* Super heroes stored in DB :: {}", students);
 			}
 		};
 	}
-
 }

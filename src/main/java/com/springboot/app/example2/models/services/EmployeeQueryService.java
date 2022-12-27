@@ -1,8 +1,8 @@
-package com.springboot.mongo.jpa.service;
+package com.springboot.app.example2.models.services;
+
 
 import java.util.List;
-
-import com.springboot.mongo.jpa.model.Employee;
+import com.springboot.app.example2.models.Employee;
 
 public interface EmployeeQueryService {
 	
@@ -19,6 +19,4 @@ public interface EmployeeQueryService {
 	List<Employee> getEmployeeBySalaryGreaterThan(int salary);
 
 	List<Employee> getEmployeeByCondition(Employee employee);
-
-
 }

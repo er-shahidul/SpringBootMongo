@@ -1,12 +1,11 @@
-package com.springboot.mongo.jpa.controller;
+package com.springboot.app.example2.controllers;
+
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import com.springboot.mongo.jpa.model.Employee;
-import com.springboot.mongo.jpa.service.EmployeeQueryService;
+import com.springboot.app.example2.models.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.springboot.app.example2.models.services.EmployeeQueryService;
 
 @RestController
 @RequestMapping("/employee-query")
@@ -20,13 +19,11 @@ public class EmployeeQueryController {
         return employeeQueryService.getAll();
     }
 
-
     // getAll employee by first name (equals())
     @GetMapping("/firstName/{firstName}")
     public List<Employee> getEmployeeByFirstName(@PathVariable String firstName) {
         return employeeQueryService.getEmployeeByFirstName(firstName);
     }
-
 
     // getAll employee by first name (equals())
     @GetMapping("/one-by-firstName/{firstName}")
@@ -40,23 +37,19 @@ public class EmployeeQueryController {
         return employeeQueryService.getEmployeeByFirstNameLike(firstName);
     }
 
-
     // getAll employee by last name (equals())
     @GetMapping("/one-by-lastName/{lastName}")
     public Employee getSingleEmployeeByLastName(@PathVariable String lastName) {
         return employeeQueryService.getSingleEmployeeByLastName(lastName);
     }
 
-
     @GetMapping("/salary-greater-than/{salary}")
     public List<Employee> getEmployeeBySalaryGreaterThan(@PathVariable int salary) {
         return employeeQueryService.getEmployeeBySalaryGreaterThan(salary);
     }
 
-
     @PostMapping("/get-by-condition")
     public List<Employee> getEmployeeByCondition(@RequestBody Employee employee) {
         return employeeQueryService.getEmployeeByCondition(employee);
     }
-
 }

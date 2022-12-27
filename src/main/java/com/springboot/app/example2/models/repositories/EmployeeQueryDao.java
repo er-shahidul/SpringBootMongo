@@ -1,8 +1,8 @@
-package com.springboot.mongo.jpa.repository;
+package com.springboot.app.example2.models.repositories;
+
 
 import java.util.List;
-
-import com.springboot.mongo.jpa.model.Employee;
+import com.springboot.app.example2.models.Employee;
 
 public interface EmployeeQueryDao {
 	
@@ -17,5 +17,4 @@ public interface EmployeeQueryDao {
 	Employee getSingleEmployeeByLastName(String lastName);
 
 	List<Employee> getEmployeeBySalaryGreaterThan(int salary);
-
 }
