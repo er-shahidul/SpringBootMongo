@@ -1,1 +1,1 @@
-# SpringBootMongoJpa
+# SpringBootMongo
